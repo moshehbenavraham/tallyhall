@@ -1,0 +1,22 @@
+{
+  "name": "ExpenseDesk",
+  "short_name": "ExpenseDesk",
+  "description": "Submit, approve, report, and analyze team expenses in one workspace.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "32x32 48x48 64x64",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/social-card.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

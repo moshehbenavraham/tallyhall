@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ExpenseDesk — Expense management for modern teams</title>
+    <meta name="description" content="ExpenseDesk helps teams submit, approve, and analyze expenses with finance-ready workflows." />
+    <meta name="author" content="ExpenseDesk" />
+    <meta name="theme-color" content="#2563eb" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="color-scheme" content="light dark" />
+
+    <link rel="canonical" href="https://expensedesk.app/" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/favicon.ico" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ExpenseDesk" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content="https://expensedesk.app/" />
+    <meta property="og:image" content="https://expensedesk.app/social-card.svg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="ExpenseDesk dashboard preview with expense submissions, approvals, and reporting panels." />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://expensedesk.app/social-card.svg" />
+    <meta name="twitter:image:alt" content="ExpenseDesk dashboard preview with expense submissions, approvals, and reporting panels." />
+    <meta property="og:title" content="ExpenseDesk — Expense management for modern teams" />
+    <meta name="twitter:title" content="ExpenseDesk — Expense management for modern teams" />
+    <meta property="og:description" content="Submit, approve, report, and analyze team expenses in one workspace." />
+    <meta name="twitter:description" content="Submit, approve, report, and analyze team expenses in one workspace." />
+
+    <!--
+      Structured data baked into the HTML response so crawlers that do not
+      execute JavaScript can still discover the organization, the website,
+      and that this is a finance/business productivity application. Keep
+      this in sync with src/components/SEO.tsx::buildSiteJsonLd().
+    -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://expensedesk.app/#organization",
+            "name": "ExpenseDesk",
+            "url": "https://expensedesk.app/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://expensedesk.app/social-card.svg",
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://expensedesk.app/#website",
+            "url": "https://expensedesk.app/",
+            "name": "ExpenseDesk",
+            "description": "Submit, approve, report, and analyze team expenses in one workspace.",
+            "publisher": { "@id": "https://expensedesk.app/#organization" },
+            "inLanguage": "en"
+          },
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://expensedesk.app/#app",
+            "name": "ExpenseDesk",
+            "url": "https://expensedesk.app/",
+            "applicationCategory": "BusinessApplication",
+            "applicationSubCategory": "FinanceApplication",
+            "operatingSystem": "Web",
+            "description": "Expense management workspace for submissions, approvals, finance reporting, and AI-assisted expense analysis.",
+            "image": "https://expensedesk.app/social-card.svg",
+            "publisher": { "@id": "https://expensedesk.app/#organization" },
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            }
+          }
+        ]
+      }
+    </script>
+
+    <!--
+      Anti-FOUC theme bootstrap. Applies the user's last chosen theme (or
+      their OS preference) to <html> before paint so dark-mode users do not
+      see a light flash on first load.
+    -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem("theme");
+          var prefersDark =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+          var theme =
+            stored === "dark" || stored === "light"
+              ? stored
+              : prefersDark
+              ? "dark"
+              : "light";
+          if (theme === "dark") document.documentElement.classList.add("dark");
+          document.documentElement.style.colorScheme = theme;
+        } catch (_) {
+          /* localStorage may be unavailable in some embeds; safe to ignore. */
+        }
+      })();
+    </script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <div style="font-family: system-ui, sans-serif; padding: 2rem; max-width: 40rem; margin: 4rem auto; line-height: 1.5;">
+        <h1 style="font-size: 1.5rem; margin: 0 0 0.75rem;">JavaScript required</h1>
+        <p>ExpenseDesk is an interactive workspace and requires JavaScript to be enabled. Please enable JavaScript in your browser settings and reload this page.</p>
+      </div>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
